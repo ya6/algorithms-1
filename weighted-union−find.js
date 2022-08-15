@@ -6,11 +6,14 @@ class UF {
         this.size = Array.from( {length: this.n}, (_, __)=>1)
     }
     root(a) {
-        // console.log(`arr[${a}] -> ${this.arr[a]}`);
+        console.log(`arr[${a}] -> ${this.arr[a]}`);
        if (this.arr[a] === a) {
         return a;
     } 
-    else return this.root(this.arr[a])
+    else {
+this.arr[a] = this.arr[this.arr[a]]
+        return this.root(this.arr[a])
+    }
     }
     connected(a, b) {
        return this.root(a) === this.root(b)
@@ -40,10 +43,13 @@ console.log( uf.getArr())
 console.log( uf.getSize())
 console.log( uf.connected(1, 2))
 // console.log(`root of ${1}-->`, uf.root(1))
- console.log( uf.union(1, 2))
- console.log( uf.connected(1, 2))
- console.log( uf.getSize())
- console.log( uf.union(0, 1))
- console.log( uf.connected(0, 2))
- console.log( uf.getSize())
-//  console.log( uf.getSize())
+console.log( uf.union(1, 2))
+console.log( uf.connected(1, 2))
+console.log( uf.getSize())
+console.log( uf.union(0, 1))
+console.log( uf.union(2, 3))
+console.log( uf.connected(0, 2))
+
+console.log( uf.getSize())
+console.log( uf.getArr())
+console.log( uf.getSize())
